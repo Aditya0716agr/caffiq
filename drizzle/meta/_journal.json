@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1756293214660,
+      "tag": "0000_salty_viper",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1757198171169,
+      "tag": "0001_material_blob",
+      "breakpoints": true
+    }
+  ]
+}
