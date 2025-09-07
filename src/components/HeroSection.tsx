@@ -340,19 +340,19 @@ export default function HeroSection({ className }: HeroSectionProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-transparent via-ring/10 to-transparent rounded-3xl" />
               
               {/* Product Image Container */}
-              <div className="relative bg-gradient-to-br from-card/20 to-card/10 backdrop-blur-sm rounded-3xl p-8 border border-border/20 !w-[109%] !h-full">
-                <div className="relative aspect-square max-w-lg mx-auto">
+              <div className="relative bg-gradient-to-br from-card/20 to-card/10 backdrop-blur-sm rounded-3xl p-8 border border-border/20 !w-[99.9%] !h-full">
+                <div className="relative aspect-square mx-auto !w-[247px] !h-[351px] !max-w-[247px]">
                   <img
                     src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/1757197526116-13q1hyzigul.png"
                     alt="Caffiq Energy Gum - Premium black box with blue caffeinated gum tablets and sleek packaging design"
-                    className="w-full h-full object-contain rounded-2xl transition-all duration-500 group-hover:scale-105" />
+                    className="object-contain rounded-2xl transition-all duration-500 group-hover:scale-105 !w-[81px] !h-[218px] !max-w-[81px]" />
 
                   
                   {/* Reflection Effect */}
                   <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 rounded-2xl pointer-events-none" />
                   
                   {/* Glow Effect on Hover */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-ring/20 via-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 !w-[702px] !h-[527px]" />
+                  <div className="absolute -inset-4 bg-gradient-to-r from-ring/20 via-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 !w-[382px] !h-5" />
                 </div>
                 
                 {/* Floating Shadow */}
