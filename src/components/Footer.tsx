@@ -10,22 +10,22 @@ export default function Footer() {
             <a
               href="#"
               className="p-3 rounded-full border border-border hover:border-ring hover:bg-accent/10 transition-all duration-200 group"
-              aria-label="Follow us on Instagram"
-            >
+              aria-label="Follow us on Instagram">
+
               <Instagram className="w-5 h-5 text-muted-foreground group-hover:text-ring transition-colors duration-200" />
             </a>
             <a
               href="#"
               className="p-3 rounded-full border border-border hover:border-ring hover:bg-accent/10 transition-all duration-200 group"
-              aria-label="Connect with us on LinkedIn"
-            >
+              aria-label="Connect with us on LinkedIn">
+
               <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-ring transition-colors duration-200" />
             </a>
             <a
               href="#"
               className="p-3 rounded-full border border-border hover:border-ring hover:bg-accent/10 transition-all duration-200 group"
-              aria-label="Message us on WhatsApp"
-            >
+              aria-label="Message us on WhatsApp">
+
               <Facebook className="w-5 h-5 text-muted-foreground group-hover:text-ring transition-colors duration-200" />
             </a>
           </div>
@@ -47,20 +47,20 @@ export default function Footer() {
             </p>
             <a
               href="mailto:hello@caffiq.com"
-              className="text-sm text-ring hover:text-ring/80 transition-colors duration-200 font-medium"
-            >
+              className="text-sm text-ring hover:text-ring/80 transition-colors duration-200 font-medium">
+
               hertofhelp@gmail.com
             </a>
           </div>
 
           {/* Copyright */}
           <div className="pt-6 border-t border-border w-full text-center">
-            <p className="text-xs text-muted-foreground">
-              © 2024 Caffiq. All rights reserved.
+            <p className="text-xs text-muted-foreground !whitespace-pre-line">© 2025 Caffiq. All rights reserved.
+
             </p>
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 }
