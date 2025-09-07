@@ -340,7 +340,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-transparent via-ring/10 to-transparent rounded-3xl" />
               
               {/* Product Image Container */}
-              <div className="relative bg-gradient-to-br from-card/20 to-card/10 backdrop-blur-sm rounded-3xl p-8 border border-border/20 !w-[99.9%] !h-full">
+              <div className="relative bg-gradient-to-br from-card/20 to-card/10 backdrop-blur-sm rounded-3xl p-8 border border-border/20 !w-[99.9%] !h-full !opacity-0 !opacity-100">
                 <div className="relative aspect-square mx-auto !w-[44%] !h-[374px] !max-w-[44%]">
                   <img
                     src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/1757197526116-13q1hyzigul.png"
