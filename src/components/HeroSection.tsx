@@ -336,12 +336,12 @@ export default function HeroSection({ className }: HeroSectionProps) {
               className="relative group">
 
               {/* Background Effects */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 via-ring/20 to-purple-900/30 rounded-3xl blur-3xl scale-110 !w-[86%] !h-[337px]" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 via-ring/20 to-purple-900/30 rounded-3xl blur-3xl scale-110 !w-[49.7%] !h-5" />
               <div className="absolute inset-0 bg-gradient-to-t from-transparent via-ring/10 to-transparent rounded-3xl" />
               
               {/* Product Image Container */}
-              <div className="relative bg-gradient-to-br from-card/20 to-card/10 backdrop-blur-sm rounded-3xl p-8 border border-border/20 !opacity-0 !opacity-100 !w-[99.9%] !h-full">
-                <div className="relative aspect-square mx-auto !w-[408px] !h-[374px] !max-w-[408px] !opacity-0">
+              <div className="relative bg-gradient-to-br from-card/20 to-card/10 backdrop-blur-sm rounded-3xl p-8 border border-border/20 !opacity-0 !opacity-100 !w-[99.9%] !h-full !opacity-0">
+                <div className="relative aspect-square mx-auto !opacity-0 !w-[11925%] !h-5 !max-w-[11925%]">
                   <img
                     src=""
                     alt="Caffiq Energy Gum - Premium black box with blue caffeinated gum tablets and sleek packaging design"
