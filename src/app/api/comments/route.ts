@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/db';
-import { comments } from '@/db/schema';
-import { eq, like, and, or, desc } from 'drizzle-orm';
+import { supabase } from '@/lib/supabase';
 
 export async function GET(request: NextRequest) {
   try {
@@ -10,19 +8,24 @@ export async function GET(request: NextRequest) {
     const offset = parseInt(searchParams.get('offset') || '0');
     const search = searchParams.get('search');
 
-    let query = db.select().from(comments).orderBy(desc(comments.createdAt));
+    let query = supabase
+      .from('comments')
+      .select('*')
+      .order('created_at', { ascending: false })
+      .range(offset, offset + limit - 1);
 
     if (search) {
-      const searchCondition = or(
-        like(comments.name, `%${search}%`),
-        like(comments.email, `%${search}%`),
-        like(comments.subject, `%${search}%`),
-        like(comments.comment, `%${search}%`)
-      );
-      query = query.where(searchCondition);
+      query = query.or(`name.ilike.%${search}%,email.ilike.%${search}%,subject.ilike.%${search}%,comment.ilike.%${search}%`);
     }
 
-    const results = await query.limit(limit).offset(offset);
+    const { data: results, error } = await query;
+
+    if (error) {
+      console.error('Get comments error:', error);
+      return NextResponse.json({ 
+        error: 'Database error getting comments' 
+      }, { status: 500 });
+    }
 
     return NextResponse.json(results, { status: 200 });
   } catch (error) {
@@ -76,15 +79,24 @@ export async function POST(request: NextRequest) {
       email: email.trim().toLowerCase(),
       subject: subject ? subject.trim() : null,
       comment: comment.trim(),
-      createdAt: new Date().toISOString()
+      created_at: new Date().toISOString()
     };
 
     // Insert into database
-    const newComment = await db.insert(comments)
-      .values(sanitizedData)
-      .returning();
+    const { data: newComment, error } = await supabase
+      .from('comments')
+      .insert(sanitizedData)
+      .select()
+      .single();
 
-    return NextResponse.json(newComment[0], { status: 201 });
+    if (error) {
+      console.error('Insert comment error:', error);
+      return NextResponse.json({ 
+        error: 'Database error creating comment' 
+      }, { status: 500 });
+    }
+
+    return NextResponse.json(newComment, { status: 201 });
   } catch (error) {
     console.error('POST error:', error);
     return NextResponse.json({ 

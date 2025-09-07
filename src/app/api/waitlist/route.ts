@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { db } from '@/db';
-import { waitlistSignups } from '@/db/schema';
-import { eq, count } from 'drizzle-orm';
+import { supabase } from '@/lib/supabase';
 
 export async function POST(request: NextRequest) {
   try {
@@ -30,12 +28,20 @@ export async function POST(request: NextRequest) {
     const sanitizedName = name ? name.trim() : null;
 
     // Check if email already exists
-    const existingSignup = await db.select()
-      .from(waitlistSignups)
-      .where(eq(waitlistSignups.email, sanitizedEmail))
+    const { data: existingSignup, error: checkError } = await supabase
+      .from('waitlist_signups')
+      .select('id')
+      .eq('email', sanitizedEmail)
       .limit(1);
 
-    if (existingSignup.length > 0) {
+    if (checkError) {
+      console.error('Check existing signup error:', checkError);
+      return NextResponse.json({ 
+        error: 'Database error checking existing signup' 
+      }, { status: 500 });
+    }
+
+    if (existingSignup && existingSignup.length > 0) {
       return NextResponse.json({ 
         error: "Email already registered for waitlist",
         code: "DUPLICATE_EMAIL" 
@@ -43,27 +49,36 @@ export async function POST(request: NextRequest) {
     }
 
     // Create new waitlist signup
-    const newSignup = await db.insert(waitlistSignups)
-      .values({
+    const { data: newSignup, error: insertError } = await supabase
+      .from('waitlist_signups')
+      .insert({
         email: sanitizedEmail,
         name: sanitizedName,
-        createdAt: new Date().toISOString()
+        created_at: new Date().toISOString()
       })
-      .returning();
+      .select()
+      .single();
 
-    return NextResponse.json(newSignup[0], { status: 201 });
+    if (insertError) {
+      console.error('Insert signup error:', insertError);
+      
+      // Handle unique constraint violation
+      if (insertError.code === '23505') {
+        return NextResponse.json({ 
+          error: "Email already registered for waitlist",
+          code: "DUPLICATE_EMAIL" 
+        }, { status: 409 });
+      }
+
+      return NextResponse.json({ 
+        error: 'Database error creating signup' 
+      }, { status: 500 });
+    }
+
+    return NextResponse.json(newSignup, { status: 201 });
 
   } catch (error) {
     console.error('POST error:', error);
-    
-    // Handle database unique constraint violation as backup
-    if (error instanceof Error && error.message.includes('UNIQUE constraint failed')) {
-      return NextResponse.json({ 
-        error: "Email already registered for waitlist",
-        code: "DUPLICATE_EMAIL" 
-      }, { status: 409 });
-    }
-
     return NextResponse.json({ 
       error: 'Internal server error: ' + error 
     }, { status: 500 });
@@ -77,15 +92,31 @@ export async function GET(request: NextRequest) {
 
     if (countOnly) {
       // Return only count
-      const result = await db.select({ count: count() })
-        .from(waitlistSignups);
-      
-      return NextResponse.json({ count: result[0].count }, { status: 200 });
+      const { count, error } = await supabase
+        .from('waitlist_signups')
+        .select('*', { count: 'exact', head: true });
+
+      if (error) {
+        console.error('Count error:', error);
+        return NextResponse.json({ 
+          error: 'Database error getting count' 
+        }, { status: 500 });
+      }
+
+      return NextResponse.json({ count: count || 0 }, { status: 200 });
     } else {
       // Return all signups
-      const signups = await db.select()
-        .from(waitlistSignups)
-        .orderBy(waitlistSignups.createdAt);
+      const { data: signups, error } = await supabase
+        .from('waitlist_signups')
+        .select('*')
+        .order('created_at', { ascending: true });
+
+      if (error) {
+        console.error('Get signups error:', error);
+        return NextResponse.json({ 
+          error: 'Database error getting signups' 
+        }, { status: 500 });
+      }
 
       return NextResponse.json(signups, { status: 200 });
     }
