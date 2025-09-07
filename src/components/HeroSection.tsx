@@ -200,7 +200,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
             </motion.h1>
             
             <motion.p
-              className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed"
+              className="text-lg md:text-xl text-muted-foreground mx-auto lg:mx-0 leading-relaxed !w-[576px] !h-[98px] !max-w-xl"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}>
@@ -211,12 +211,12 @@ export default function HeroSection({ className }: HeroSectionProps) {
 
             {/* Waitlist Form */}
             <motion.div
-              className="space-y-6"
+              className="space-y-6 !w-[143.1%] !h-40"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}>
 
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto lg:mx-0">
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 mx-auto lg:mx-0 !w-[448px] !h-14 !max-w-md">
                 <div className="flex-1">
                   <Input
                     type="email"
