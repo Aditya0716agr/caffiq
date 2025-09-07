@@ -340,8 +340,8 @@ export default function HeroSection({ className }: HeroSectionProps) {
               <div className="absolute inset-0 bg-gradient-to-t from-transparent via-ring/10 to-transparent rounded-3xl !opacity-0" />
               
               {/* Product Image Container */}
-              <div className="relative bg-gradient-to-br from-card/20 to-card/10 backdrop-blur-sm rounded-3xl p-8 border border-border/20 !opacity-0 !opacity-100 !w-[99.9%] !h-full !opacity-0">
-                <div className="relative aspect-square mx-auto !opacity-0 !w-[11925%] !h-5 !max-w-[11925%]">
+              <div className="relative bg-gradient-to-br from-card/20 to-card/10 backdrop-blur-sm rounded-3xl p-8 border border-border/20 !opacity-0 !opacity-100 !opacity-0 !w-[108px] !h-full !opacity-0">
+                <div className="relative aspect-square mx-auto !opacity-0 !w-[302px] !h-5 !max-w-[302px]">
                   <img
                     src=""
                     alt="Caffiq Energy Gum - Premium black box with blue caffeinated gum tablets and sleek packaging design"
@@ -352,7 +352,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 rounded-2xl pointer-events-none" />
                   
                   {/* Glow Effect on Hover */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-ring/20 via-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 !w-[382px] !h-5" />
+                  <div className="absolute -inset-4 bg-gradient-to-r from-ring/20 via-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 !w-[382px] !h-5 !opacity-0" />
                 </div>
                 
                 {/* Floating Shadow */}
