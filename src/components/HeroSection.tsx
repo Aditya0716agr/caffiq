@@ -341,11 +341,11 @@ export default function HeroSection({ className }: HeroSectionProps) {
               
               {/* Product Image Container */}
               <div className="relative bg-gradient-to-br from-card/20 to-card/10 backdrop-blur-sm rounded-3xl p-8 border border-border/20 !w-[99.9%] !h-full">
-                <div className="relative aspect-square mx-auto !w-[408px] !h-[454px] !max-w-[408px]">
+                <div className="relative aspect-square mx-auto !w-[44%] !h-[374px] !max-w-[44%]">
                   <img
                     src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/1757197526116-13q1hyzigul.png"
                     alt="Caffiq Energy Gum - Premium black box with blue caffeinated gum tablets and sleek packaging design"
-                    className="object-contain rounded-2xl transition-all duration-500 group-hover:scale-105 !opacity-100 !w-[81px] !h-[389px] !max-w-[81px]" />
+                    className="object-contain rounded-2xl transition-all duration-500 group-hover:scale-105 !opacity-100 !w-[81px] !h-[412px] !max-w-[81px]" />
 
                   
                   {/* Reflection Effect */}
