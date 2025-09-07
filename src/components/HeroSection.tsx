@@ -173,13 +173,13 @@ export default function HeroSection({ className }: HeroSectionProps) {
               className="space-y-4"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}>
+              transition={{ duration: 0.8 }}>
               
               <motion.h1
                 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-heading font-light tracking-tight leading-[0.85]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}>
+                transition={{ duration: 0.8, delay: 0.1 }}>
                 <span className="text-foreground block">
                   Energize
                 </span>
@@ -196,7 +196,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
               className="text-xl sm:text-2xl md:text-3xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-light"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}>
+              transition={{ duration: 0.8, delay: 0.2 }}>
               Revolutionary energy gum that delivers instant focus and vitality when you need it most. 
               Join thousands waiting for the future of portable energy.
             </motion.p>
@@ -206,7 +206,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
               className="space-y-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}>
+              transition={{ duration: 0.8, delay: 0.4 }}>
 
               <div className="max-w-md mx-auto">
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -274,7 +274,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
               className="max-w-lg mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}>
+              transition={{ duration: 0.8, delay: 0.8 }}>
 
               <div className="text-center mb-8">
                 <h3 className="text-lg font-medium text-muted-foreground mb-6">

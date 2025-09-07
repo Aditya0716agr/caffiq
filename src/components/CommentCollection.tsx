@@ -191,7 +191,6 @@ export const CommentCollectionComponent = () => {
               transition={{
                 duration: 4,
                 repeat: Infinity,
-                ease: "easeInOut"
               }}
               className="relative"
             >
@@ -203,7 +202,6 @@ export const CommentCollectionComponent = () => {
                 transition={{
                   duration: 2,
                   repeat: Infinity,
-                  ease: "easeInOut"
                 }}
                 className="absolute -top-1 -right-1 w-4 h-4 bg-accent-foreground rounded-full flex items-center justify-center"
               >

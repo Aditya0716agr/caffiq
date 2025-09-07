@@ -34,7 +34,6 @@ const EnergyParticles = () => {
           transition={{
             duration: particle.duration,
             repeat: Infinity,
-            ease: "easeInOut",
             delay: particle.delay,
           }}
         />
@@ -82,7 +81,6 @@ const AmbientOrbs = () => {
           transition={{
             duration: orb.duration,
             repeat: Infinity,
-            ease: "easeInOut",
             delay: orb.delay,
           }}
         />
@@ -145,7 +143,6 @@ const FloatingShapes = () => {
           transition={{
             duration: shape.duration,
             repeat: Infinity,
-            ease: "easeInOut",
             delay: shape.delay,
           }}
         />
@@ -171,7 +168,6 @@ const EnergyWaves = () => {
           transition={{
             duration: 10 + i * 3,
             repeat: Infinity,
-            ease: "easeInOut",
             delay: i * 4,
           }}
         />

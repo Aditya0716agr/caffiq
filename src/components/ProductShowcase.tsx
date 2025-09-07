@@ -55,8 +55,7 @@ export default function ProductShowcase({ className }: ProductShowcaseProps) {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: "easeOut"
+        duration: 0.6
       }
     }
   };
@@ -65,8 +64,7 @@ export default function ProductShowcase({ className }: ProductShowcaseProps) {
     y: [0, -8, 0],
     transition: {
       duration: 3,
-      repeat: Infinity,
-      ease: "easeInOut"
+      repeat: Infinity
     }
   };
 
