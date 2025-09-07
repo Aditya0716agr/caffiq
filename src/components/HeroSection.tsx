@@ -138,9 +138,9 @@ export default function HeroSection({ className }: HeroSectionProps) {
   const userAvatars = peoplePhotos.map((photoUrl, i) =>
   <motion.div
     key={i}
-    className="relative w-10 h-10 rounded-full border-2 border-ring/30 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+    className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-ring/30 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
     style={{
-      marginLeft: i > 0 ? '-0.75rem' : '0',
+      marginLeft: i > 0 ? '-0.5rem' : '0',
       zIndex: 8 - i
     }}
     initial={{ opacity: 0, scale: 0.8, y: 20 }}
@@ -168,39 +168,30 @@ export default function HeroSection({ className }: HeroSectionProps) {
     </motion.div>
   );
 
-  const floatAnimation = {
-    y: [0, -8, 0],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
-  };
 
   return (
-    <section className={`relative py-20 md:py-32 overflow-hidden ${className || ''}`}>
-      <div className="container max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Column - Content */}
-          <div className="space-y-8 text-center lg:text-left">
+    <section className={`relative py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 overflow-hidden ${className || ''}`}>
+      <div className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-3xl mx-auto">
+          {/* Content */}
+          <div className="space-y-6 sm:space-y-8 text-center">
             {/* Main Headline */}
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold tracking-tight leading-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}>
 
-              <span className="bg-gradient-to-br from-foreground via-foreground to-foreground/80 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-br from-foreground via-foreground to-foreground/80 bg-clip-text text-transparent block">
                 Energize Anywhere,
               </span>
-              <br />
-              <span className="bg-gradient-to-br from-ring via-ring to-ring/80 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-br from-ring via-ring to-ring/80 bg-clip-text text-transparent block">
                 Instantly.
               </span>
             </motion.h1>
             
             <motion.p
-              className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0 leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4 sm:px-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}>
@@ -211,26 +202,26 @@ export default function HeroSection({ className }: HeroSectionProps) {
 
             {/* Waitlist Form */}
             <motion.div
-              className="space-y-6"
+              className="space-y-4 sm:space-y-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}>
 
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto lg:mx-0">
-                <div className="flex-1">
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-sm sm:max-w-md mx-auto px-4 sm:px-0">
+                <div className="flex-1 w-full">
                   <Input
                     type="email"
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={isLoading || isSuccess}
-                    className="h-14 text-base bg-card border-border focus:border-ring transition-colors" />
+                    className="h-12 sm:h-14 text-sm sm:text-base bg-card border-border focus:border-ring transition-colors w-full" />
 
                 </div>
                 <Button
                   type="submit"
                   disabled={isLoading || isSuccess}
-                  className="h-14 px-8 bg-ring hover:bg-ring/90 text-primary-foreground font-medium transition-all duration-200 disabled:opacity-50">
+                  className="h-12 sm:h-14 px-6 sm:px-8 bg-ring hover:bg-ring/90 text-primary-foreground font-medium transition-all duration-200 disabled:opacity-50 w-full sm:w-auto">
 
                   {isLoading ?
                   <div className="flex items-center gap-2">
@@ -255,16 +246,16 @@ export default function HeroSection({ className }: HeroSectionProps) {
 
               {/* Social Proof with Real Photos */}
               <motion.div
-                className="flex flex-col items-center lg:items-start gap-4"
+                className="flex flex-col items-center gap-3 sm:gap-4 px-4 sm:px-0"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}>
 
-                <div className="flex items-center justify-center lg:justify-start">
+                <div className="flex items-center justify-center flex-wrap gap-1">
                   {userAvatars}
                 </div>
                 <motion.p
-                  className="text-muted-foreground"
+                  className="text-sm sm:text-base text-muted-foreground text-center"
                   key={signupCount}
                   initial={{ opacity: 0.7, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -280,19 +271,19 @@ export default function HeroSection({ className }: HeroSectionProps) {
 
             {/* Countdown Timer */}
             <motion.div
-              className="max-w-lg mx-auto lg:mx-0"
+              className="max-w-lg mx-auto px-4 sm:px-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}>
 
-              <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
+              <div className="flex items-center justify-center gap-2 mb-4 sm:mb-6">
                 <Timer className="w-5 h-5 text-ring" />
                 <h3 className="text-lg font-heading font-semibold text-foreground">
                   Launch Countdown
                 </h3>
               </div>
               
-              <div className="grid grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
                 {[
                 { label: 'Days', value: timeLeft.days },
                 { label: 'Hours', value: timeLeft.hours },
@@ -301,13 +292,13 @@ export default function HeroSection({ className }: HeroSectionProps) {
                 map((item, index) =>
                 <motion.div
                   key={item.label}
-                  className="bg-card border border-border rounded-lg p-4 flex flex-col items-center gap-2 hover:border-ring/50 transition-colors"
+                  className="bg-card border border-border rounded-lg p-3 sm:p-4 flex flex-col items-center gap-1 sm:gap-2 hover:border-ring/50 transition-colors"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}>
 
                     <motion.div
-                    className="text-2xl md:text-3xl font-heading font-bold text-ring tabular-nums"
+                    className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-ring tabular-nums"
                     key={item.value}
                     initial={{ opacity: 0.8, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -315,7 +306,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
 
                       {item.value.toString().padStart(2, '0')}
                     </motion.div>
-                    <div className="text-xs md:text-sm text-muted-foreground font-medium uppercase tracking-wider">
+                    <div className="text-xs sm:text-sm text-muted-foreground font-medium uppercase tracking-wider">
                       {item.label}
                     </div>
                   </motion.div>
@@ -323,47 +314,6 @@ export default function HeroSection({ className }: HeroSectionProps) {
               </div>
             </motion.div>
           </div>
-
-          {/* Right Column - Product Image */}
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}>
-
-            <motion.div
-              animate={floatAnimation}
-              className="relative group">
-
-              {/* Background Effects */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 via-ring/20 to-purple-900/30 rounded-3xl blur-3xl scale-110 !w-[86%] !h-[337px]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-transparent via-ring/10 to-transparent rounded-3xl" />
-              
-              {/* Product Image Container */}
-              <div className="relative bg-gradient-to-br from-card/20 to-card/10 backdrop-blur-sm rounded-3xl p-8 border border-border/20 !opacity-0 !opacity-100 !w-[99.9%] !h-full">
-                <div className="relative aspect-square mx-auto !w-[408px] !h-[374px] !max-w-[408px] !opacity-0">
-                  <img
-                    src=""
-                    alt="Caffiq Energy Gum - Premium black box with blue caffeinated gum tablets and sleek packaging design"
-                    className="object-contain rounded-2xl transition-all duration-500 group-hover:scale-105 !opacity-100 !w-[81px] !h-5 !max-w-[81px]" />
-
-                  
-                  {/* Reflection Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 rounded-2xl pointer-events-none" />
-                  
-                  {/* Glow Effect on Hover */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-ring/20 via-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 !w-[382px] !h-5" />
-                </div>
-                
-                {/* Floating Shadow */}
-                <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-48 h-6 bg-black/20 rounded-full blur-xl" />
-              </div>
-            </motion.div>
-            
-            {/* Decorative Elements */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-ring/20 to-transparent rounded-full blur-2xl" />
-            <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-blue-500/20 to-transparent rounded-full blur-xl" />
-          </motion.div>
         </div>
       </div>
     </section>);
