@@ -336,11 +336,11 @@ export default function HeroSection({ className }: HeroSectionProps) {
               className="relative group">
 
               {/* Background Effects */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 via-ring/20 to-purple-900/30 rounded-3xl blur-3xl scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 via-ring/20 to-purple-900/30 rounded-3xl blur-3xl scale-110 !w-[86%] !h-[337px]" />
               <div className="absolute inset-0 bg-gradient-to-t from-transparent via-ring/10 to-transparent rounded-3xl" />
               
               {/* Product Image Container */}
-              <div className="relative bg-gradient-to-br from-card/20 to-card/10 backdrop-blur-sm rounded-3xl p-8 border border-border/20 !w-[38%] !h-full">
+              <div className="relative bg-gradient-to-br from-card/20 to-card/10 backdrop-blur-sm rounded-3xl p-8 border border-border/20 !w-[109%] !h-full">
                 <div className="relative aspect-square max-w-lg mx-auto">
                   <img
                     src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/1757197526116-13q1hyzigul.png"
@@ -352,7 +352,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/5 rounded-2xl pointer-events-none" />
                   
                   {/* Glow Effect on Hover */}
-                  <div className="absolute -inset-4 bg-gradient-to-r from-ring/20 via-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 !w-[32%] !h-[378px]" />
+                  <div className="absolute -inset-4 bg-gradient-to-r from-ring/20 via-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 !w-[702px] !h-[527px]" />
                 </div>
                 
                 {/* Floating Shadow */}
