@@ -99,7 +99,7 @@ export default function ProductShowcase({ className }: ProductShowcaseProps) {
             <div className="relative h-[500px] lg:h-[700px] flex items-center justify-center">
               {/* Background Effects */}
               <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 via-accent-foreground/10 to-purple-900/20 rounded-3xl blur-3xl" />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent-foreground/5 to-transparent rounded-3xl !w-[705px] !h-full" />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent-foreground/5 to-transparent rounded-3xl !w-5 !h-[548px]" />
               
               {primaryProducts.map((product) =>
               <motion.div
