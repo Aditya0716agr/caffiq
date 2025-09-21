@@ -197,28 +197,42 @@ export default function HeroSection({ className }: HeroSectionProps) {
 
 
   return (
-    <section className={`relative py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 overflow-hidden bg-gradient-to-b from-background via-accent/5 to-background ${className || ''}`}>
+    <section className={`relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 overflow-hidden bg-gradient-to-b from-[#F9FAFB] via-[#EFFFF8] to-[#F9FAFB] ${className || ''}`}>
       <div className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           {/* Content */}
           <div className="space-y-6 sm:space-y-8 text-center">
             {/* Main Headline */}
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold tracking-tight leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-extrabold tracking-tight leading-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}>
 
-              <span className="bg-gradient-to-br from-foreground via-foreground to-foreground/80 bg-clip-text text-transparent block">
+              <motion.span
+                className="block bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground to-foreground/80"
+                style={{ backgroundSize: "200% 200%" }}
+                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
                 Energize Anywhere,
-              </span>
-              <span className="bg-gradient-to-br from-ring via-ring to-ring/80 bg-clip-text text-transparent block">
+              </motion.span>
+              <motion.span
+                className="block bg-clip-text text-transparent bg-gradient-to-r from-[#00C896] via-[#4DB6E5] to-[#00C896]"
+                style={{ backgroundSize: "200% 200%" }}
+                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}>
                 Instantly.
-              </span>
-            </motion.h1>
+              </motion.span>
+             </motion.h1>
+            <motion.div
+              className="h-1 w-24 sm:w-28 md:w-32 bg-gradient-to-r from-[#00C896] via-[#4DB6E5] to-[#00C896] rounded-full mx-auto"
+              initial={{ opacity: 0, scaleX: 0.6 }}
+              animate={{ opacity: 1, scaleX: 1 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+            />
             
             <motion.p
-              className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4 sm:px-0"
+              className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4 sm:px-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}>
@@ -234,42 +248,43 @@ export default function HeroSection({ className }: HeroSectionProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}>
 
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-sm sm:max-w-md mx-auto px-4 sm:px-0">
-                <div className="flex-1 w-full">
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    disabled={isLoading || isSuccess}
-                    className="h-12 sm:h-14 text-sm sm:text-base bg-card border-border focus:border-ring transition-colors w-full" />
-
+              <div className="max-w-xl mx-auto px-4 sm:px-0">
+                <div className="p-3 sm:p-4 rounded-2xl bg-white/80 backdrop-blur border border-[#E5E7EB] shadow-md focus-within:ring-2 focus-within:ring-[#00C896]/30 transition">
+                  <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                    <div className="flex-1 w-full">
+                      <Input
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        disabled={isLoading || isSuccess}
+                        className="h-12 sm:h-14 text-sm sm:text-base bg-white border-border rounded-xl shadow-sm placeholder:text-muted-foreground focus:border-[#00C896] focus:ring-4 focus:ring-[#00C896]/20 transition-colors w-full" />
+                    </div>
+                    <Button
+                      type="submit"
+                      disabled={isLoading || isSuccess}
+                      className="h-12 sm:h-14 px-6 sm:px-8 bg-[#00C896] hover:bg-[#00b886] text-white font-semibold rounded-xl shadow-sm hover:shadow-md transition-all duration-200 disabled:opacity-50 w-full sm:w-auto">
+                      {isLoading ? (
+                        <div className="flex items-center gap-2">
+                          <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+                          Joining...
+                        </div>
+                      ) : isSuccess ? (
+                        <motion.div
+                          className="flex items-center gap-2"
+                          initial={{ scale: 0.8 }}
+                          animate={{ scale: 1 }}
+                          transition={{ type: "spring", stiffness: 200 }}>
+                          <Check className="w-4 h-4" />
+                          Joined!
+                        </motion.div>
+                      ) : (
+                        'Join Waitlist'
+                      )}
+                    </Button>
+                  </form>
                 </div>
-                <Button
-                  type="submit"
-                  disabled={isLoading || isSuccess}
-                  className="h-12 sm:h-14 px-6 sm:px-8 bg-ring hover:bg-ring/90 text-primary-foreground font-medium transition-all duration-200 disabled:opacity-50 w-full sm:w-auto">
-
-                  {isLoading ?
-                  <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
-                      Joining...
-                    </div> :
-                  isSuccess ?
-                  <motion.div
-                    className="flex items-center gap-2"
-                    initial={{ scale: 0.8 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", stiffness: 200 }}>
-
-                      <Check className="w-4 h-4" />
-                      Joined!
-                    </motion.div> :
-
-                  'Join Waitlist'
-                  }
-                </Button>
-              </form>
+              </div>
 
               {/* Social Proof with Real Photos */}
               <motion.div
@@ -282,7 +297,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
                   {userAvatars}
                 </div>
                 <motion.p
-                  className="text-sm sm:text-base text-muted-foreground text-center"
+                  className="text-xs sm:text-sm text-muted-foreground text-center"
                   key={signupCount}
                   initial={{ opacity: 0.7, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -304,7 +319,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
               transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}>
 
               <div className="flex items-center justify-center gap-2 mb-4 sm:mb-6">
-                <Timer className="w-5 h-5 text-ring" />
+                <Timer className="w-5 h-5 text-[#00C896]" />
                 <h3 className="text-lg font-heading font-semibold text-foreground">
                   Launch Countdown
                 </h3>
@@ -319,13 +334,13 @@ export default function HeroSection({ className }: HeroSectionProps) {
                 map((item, index) =>
                 <motion.div
                   key={item.label}
-                  className="bg-card border border-border rounded-lg p-3 sm:p-4 flex flex-col items-center gap-1 sm:gap-2 hover:border-ring/50 transition-colors"
+                  className="bg-white border border-[#E5E7EB] rounded-xl p-3 sm:p-4 flex flex-col items-center gap-1 sm:gap-2 shadow-sm hover:shadow-md transition-colors"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}>
 
                     <motion.div
-                    className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-ring tabular-nums"
+                    className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-[#00C896] tabular-nums"
                     key={item.value}
                     initial={{ opacity: 0.8, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
