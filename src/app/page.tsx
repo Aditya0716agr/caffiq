@@ -15,12 +15,15 @@ export default function Home() {
         <section id="home">
           <HeroSection />
         </section>
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent my-12 sm:my-16" />
         <section id="product">
           <ProductShowcase />
         </section>
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent my-12 sm:my-16" />
         <section id="faq">
           <FAQSection />
         </section>
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent my-12 sm:my-16" />
         <section id="contact">
           <CommentCollection />
         </section>

@@ -163,9 +163,9 @@ export default function HeroSection({ className }: HeroSectionProps) {
   const userAvatars = peoplePhotos.map((photoUrl, i) =>
   <motion.div
     key={i}
-    className="relative w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-ring/30 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+    className="relative w-10 h-10 sm:w-10 sm:h-10 rounded-full border-2 border-white overflow-hidden shadow-md hover:shadow-lg transition-all duration-300"
     style={{
-      marginLeft: i > 0 ? '-0.5rem' : '0',
+      marginLeft: i > 0 ? '-0.75rem' : '0',
       zIndex: 8 - i
     }}
     initial={{ opacity: 0, scale: 0.8, y: 20 }}
@@ -177,7 +177,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
       stiffness: 100
     }}
     whileHover={{
-      scale: 1.1,
+      scale: 1.07,
       zIndex: 20,
       y: -2,
       transition: { duration: 0.2 }
@@ -189,26 +189,26 @@ export default function HeroSection({ className }: HeroSectionProps) {
       className="w-full h-full object-cover"
       loading="lazy"
       decoding="async"
-      sizes="(min-width: 640px) 2.25rem, 1.75rem" />
+      sizes="40px" />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-white/10 pointer-events-none" />
     </motion.div>
   );
 
 
   return (
-    <section className={`relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 overflow-hidden bg-gradient-to-b from-[#FBFCFD] via-[#EFFFF8] to-[#FBFCFD] ${className || ''}`}>
-      <div className="container max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+    <section className={`relative z-10 py-[120px] overflow-hidden bg-gradient-to-b from-[#FBFCFD] via-[#EFFFF8] to-[#FBFCFD] ${className || ''}`}>
+      <div className="container max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           {/* Content */}
           <div className="space-y-6 sm:space-y-8 text-center">
             {/* Main Headline */}
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-[0.5px] leading-[1.2]"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] tracking-[0.5px] leading-[1.2]"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              style={{ fontFamily: '"Playfair Display", var(--font-heading)', fontWeight: 600 }}>
+              style={{ fontFamily: '"Playfair Display", var(--font-heading)', fontWeight: 600, letterSpacing: '1.5px' }}>
 
               <motion.span
                 className="block bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground to-foreground/80"
@@ -243,12 +243,12 @@ export default function HeroSection({ className }: HeroSectionProps) {
 
             {/* Waitlist Form */}
             <motion.div
-              className="space-y-4 sm:space-y-6"
+              className="relative space-y-4 sm:space-y-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}>
 
-              <div className="max-w-xl mx-auto px-4 sm:px-0">
+              <div className="max-w-xl mx-auto px-4 sm:px-0 lg:ml-[-24px]">
                 <div className="p-3 sm:p-4 rounded-2xl bg-white/85 backdrop-blur border border-[#E5E7EB] shadow-md focus-within:ring-2 focus-within:ring-[#00B386]/25 transition">
                   <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                     <div className="flex-1 w-full relative">
@@ -259,7 +259,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         disabled={isLoading || isSuccess}
-                        className="peer h-12 sm:h-14 text-base bg-white border-border rounded-xl shadow-sm focus:border-[#00B386] focus:ring-4 focus:ring-[#00B386]/20 transition-colors w-full" />
+                        className="peer h-12 sm:h-14 text-base bg-white border-[#DDE5EC] rounded-xl shadow-inner focus:border-[#00B386] focus:ring-4 focus:ring-[#00B386]/20 transition-colors w-full" />
                       <label className="pointer-events-none absolute left-4 top-2 text-xs text-muted-foreground transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
                         Email address
                       </label>
@@ -267,7 +267,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
                     <Button
                       type="submit"
                       disabled={isLoading || isSuccess}
-                      className="h-12 sm:h-14 px-6 sm:px-8 bg-gradient-to-r from-[#00B386] to-[#39C1A0] hover:from-[#00aa7b] hover:to-[#33ad90] text-white font-semibold rounded-xl shadow-sm hover:shadow-md transition-transform duration-200 disabled:opacity-50 transform hover:scale-[1.02] w-full sm:w-auto">
+                      className="h-12 sm:h-14 px-6 sm:px-8 bg-gradient-to-r from-[#00B386] to-[#039a74] hover:from-[#00aa7b] hover:to-[#03906c] text-white font-medium rounded-xl shadow-sm hover:shadow-[0_0_24px_rgba(0,179,134,0.25)] transition-transform duration-200 disabled:opacity-50 transform hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto">
                       {isLoading ? (
                         <div className="flex items-center gap-2">
                           <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
@@ -283,12 +283,15 @@ export default function HeroSection({ className }: HeroSectionProps) {
                           Joined!
                         </motion.div>
                       ) : (
-                        'Reserve Your Access'
+                        'Secure Early Access'
                       )}
                     </Button>
                   </form>
                 </div>
               </div>
+
+              {/* Decorative asymmetric element (right) */}
+              <div aria-hidden className="hidden lg:block absolute -right-6 -top-6 w-40 h-40 rounded-full bg-gradient-to-br from-[#E0FFF4] via-[#E6F7FF] to-transparent blur-2xl opacity-70" />
 
               {/* Social Proof with Real Photos */}
               <motion.div
@@ -310,7 +313,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
                   <span className="font-semibold text-foreground">
                     {Math.max(300, signupCount).toLocaleString()}+
                   </span>
-                  {' '}professionals have joined
+                  {' '}professionals have reserved access
                 </motion.p>
               </motion.div>
             </motion.div>
@@ -333,13 +336,13 @@ export default function HeroSection({ className }: HeroSectionProps) {
                 {[{ label: 'Days', value: timeLeft.days }, { label: 'Hours', value: timeLeft.hours }, { label: 'Minutes', value: timeLeft.minutes }, { label: 'Seconds', value: timeLeft.seconds }].map((item, index) =>
                 <motion.div
                   key={item.label}
-                  className="bg-white border border-[#E5E7EB] rounded-xl p-3 sm:p-4 flex flex-col items-center gap-1 sm:gap-2 shadow-sm hover:shadow-md transition-colors"
+                  className="bg-white/60 backdrop-blur-md border border-white/40 ring-1 ring-[#00B386]/10 rounded-xl p-3 sm:p-4 flex flex-col items-center gap-1 sm:gap-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_8px_24px_rgba(15,23,42,0.06)] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_12px_28px_rgba(15,23,42,0.08)] transition-colors"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}>
 
                     <motion.div
-                    className="text-xl sm:text-2xl md:text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#00B386] to-[#4DB6E5] tabular-nums"
+                    className="text-xl sm:text-2xl md:text-3xl font-light text-transparent bg-clip-text bg-gradient-to-r from-[#00B386] to-[#4DB6E5] tabular-nums"
                     key={item.value}
                     initial={{ opacity: 0.85, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
