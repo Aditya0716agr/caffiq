@@ -248,7 +248,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}>
 
-              <div className="max-w-xl mx-auto px-4 sm:px-0 lg:ml-[-24px]">
+              <div className="max-w-xl mx-auto px-4 sm:px-0">
                 <div className="p-3 sm:p-4 rounded-2xl bg-white/85 backdrop-blur border border-[#E5E7EB] shadow-md focus-within:ring-2 focus-within:ring-[#00B386]/25 transition">
                   <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                     <div className="flex-1 w-full relative">
