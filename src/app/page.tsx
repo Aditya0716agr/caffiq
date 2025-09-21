@@ -1,31 +1,31 @@
-import Header from '@/components/Header';
-import HeroSection from '@/components/HeroSection';
-import ProductShowcase from '@/components/ProductShowcase';
-import FAQSection from '@/components/FAQSection';
-import { CommentCollectionComponent } from '@/components/CommentCollection';
-import Footer from '@/components/Footer';
-import { BackgroundAnimation } from '@/components/BackgroundAnimation';
+import { Header } from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+import ProductShowcase from "@/components/ProductShowcase";
+import { FAQSection } from "@/components/FAQSection";
+import { CommentCollection } from "@/components/CommentCollection";
+import Footer from "@/components/Footer";
+import { BackgroundAnimation } from "@/components/BackgroundAnimation";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background relative">
+    <div className="min-h-screen bg-background text-foreground relative">
       <BackgroundAnimation />
-      
       <Header />
-      
-      <div className="pt-16 md:pt-20">
-        <HeroSection className="px-4 sm:px-6 lg:px-8" />
-        
-        <ProductShowcase className="px-4 sm:px-6 lg:px-8" />
-        
-        <FAQSection />
-        
-        <CommentCollectionComponent />
-        
-        <Footer />
-      </div>
-      
-      <div className="pb-20 sm:pb-0" />
-    </main>
+      <main className="pt-20 md:pt-24">
+        <section id="home">
+          <HeroSection />
+        </section>
+        <section id="product">
+          <ProductShowcase />
+        </section>
+        <section id="faq">
+          <FAQSection />
+        </section>
+        <section id="contact">
+          <CommentCollection />
+        </section>
+      </main>
+      <Footer />
+    </div>
   );
 }

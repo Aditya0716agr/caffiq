@@ -163,7 +163,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
   const userAvatars = peoplePhotos.map((photoUrl, i) =>
   <motion.div
     key={i}
-    className="relative w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-ring/30 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
+    className="relative w-7 h-7 sm:w-9 sm:h-9 rounded-full border-2 border-ring/30 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
     style={{
       marginLeft: i > 0 ? '-0.5rem' : '0',
       zIndex: 8 - i
@@ -189,7 +189,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
       className="w-full h-full object-cover"
       loading="lazy"
       decoding="async"
-      sizes="(min-width: 640px) 2.5rem, 2rem" />
+      sizes="(min-width: 640px) 2.25rem, 1.75rem" />
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-white/10 pointer-events-none" />
     </motion.div>
@@ -197,48 +197,48 @@ export default function HeroSection({ className }: HeroSectionProps) {
 
 
   return (
-    <section className={`relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 overflow-hidden bg-gradient-to-b from-[#F9FAFB] via-[#EFFFF8] to-[#F9FAFB] ${className || ''}`}>
-      <div className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className={`relative z-10 py-12 sm:py-16 md:py-20 lg:py-24 xl:py-32 overflow-hidden bg-gradient-to-b from-[#FBFCFD] via-[#EFFFF8] to-[#FBFCFD] ${className || ''}`}>
+      <div className="container max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           {/* Content */}
           <div className="space-y-6 sm:space-y-8 text-center">
             {/* Main Headline */}
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-extrabold tracking-tight leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-[0.5px] leading-[1.2]"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}>
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              style={{ fontFamily: '"Playfair Display", var(--font-heading)', fontWeight: 600 }}>
 
               <motion.span
                 className="block bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground to-foreground/80"
                 style={{ backgroundSize: "200% 200%" }}
                 animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
-                Energize Anywhere,
+                Premium Energy,
               </motion.span>
               <motion.span
-                className="block bg-clip-text text-transparent bg-gradient-to-r from-[#00C896] via-[#4DB6E5] to-[#00C896]"
+                className="block bg-clip-text text-transparent bg-gradient-to-r from-[#00B386] via-[#4DB6E5] to-[#00B386] drop-shadow-sm"
                 style={{ backgroundSize: "200% 200%" }}
                 animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}>
-                Instantly.
+                Perfectly Portable.
               </motion.span>
              </motion.h1>
             <motion.div
-              className="h-1 w-24 sm:w-28 md:w-32 bg-gradient-to-r from-[#00C896] via-[#4DB6E5] to-[#00C896] rounded-full mx-auto"
+              className="h-1 w-24 sm:w-28 md:w-32 bg-gradient-to-r from-[#00B386] via-[#4DB6E5] to-[#00B386] rounded-full mx-auto"
               initial={{ opacity: 0, scaleX: 0.6 }}
               animate={{ opacity: 1, scaleX: 1 }}
               transition={{ duration: 0.6, delay: 0.15 }}
             />
             
             <motion.p
-              className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4 sm:px-0"
+              className="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto leading-[1.6] px-4 sm:px-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}>
 
-              Revolutionary energy gum that delivers instant focus and vitality when you need it most. 
-              Join thousands waiting for the future of portable energy.
+              Elevate your day with refined, portable energy—crafted for focus, clarity, and modern lifestyles.
             </motion.p>
 
             {/* Waitlist Form */}
@@ -249,21 +249,25 @@ export default function HeroSection({ className }: HeroSectionProps) {
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}>
 
               <div className="max-w-xl mx-auto px-4 sm:px-0">
-                <div className="p-3 sm:p-4 rounded-2xl bg-white/80 backdrop-blur border border-[#E5E7EB] shadow-md focus-within:ring-2 focus-within:ring-[#00C896]/30 transition">
+                <div className="p-3 sm:p-4 rounded-2xl bg-white/85 backdrop-blur border border-[#E5E7EB] shadow-md focus-within:ring-2 focus-within:ring-[#00B386]/25 transition">
                   <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                    <div className="flex-1 w-full">
+                    <div className="flex-1 w-full relative">
                       <Input
                         type="email"
-                        placeholder="Enter your email"
+                        aria-label="Email address"
+                        placeholder=" "
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         disabled={isLoading || isSuccess}
-                        className="h-12 sm:h-14 text-sm sm:text-base bg-white border-border rounded-xl shadow-sm placeholder:text-muted-foreground focus:border-[#00C896] focus:ring-4 focus:ring-[#00C896]/20 transition-colors w-full" />
+                        className="peer h-12 sm:h-14 text-base bg-white border-border rounded-xl shadow-sm focus:border-[#00B386] focus:ring-4 focus:ring-[#00B386]/20 transition-colors w-full" />
+                      <label className="pointer-events-none absolute left-4 top-2 text-xs text-muted-foreground transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
+                        Email address
+                      </label>
                     </div>
                     <Button
                       type="submit"
                       disabled={isLoading || isSuccess}
-                      className="h-12 sm:h-14 px-6 sm:px-8 bg-[#00C896] hover:bg-[#00b886] text-white font-semibold rounded-xl shadow-sm hover:shadow-md transition-all duration-200 disabled:opacity-50 w-full sm:w-auto">
+                      className="h-12 sm:h-14 px-6 sm:px-8 bg-gradient-to-r from-[#00B386] to-[#39C1A0] hover:from-[#00aa7b] hover:to-[#33ad90] text-white font-semibold rounded-xl shadow-sm hover:shadow-md transition-transform duration-200 disabled:opacity-50 transform hover:scale-[1.02] w-full sm:w-auto">
                       {isLoading ? (
                         <div className="flex items-center gap-2">
                           <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
@@ -279,7 +283,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
                           Joined!
                         </motion.div>
                       ) : (
-                        'Join Waitlist'
+                        'Reserve Your Access'
                       )}
                     </Button>
                   </form>
@@ -304,9 +308,9 @@ export default function HeroSection({ className }: HeroSectionProps) {
                   transition={{ duration: 0.3 }}>
 
                   <span className="font-semibold text-foreground">
-                    {signupCount.toLocaleString()}+
+                    {Math.max(300, signupCount).toLocaleString()}+
                   </span>
-                  {' '}people have already joined the waitlist
+                  {' '}professionals have joined
                 </motion.p>
               </motion.div>
             </motion.div>
@@ -319,19 +323,14 @@ export default function HeroSection({ className }: HeroSectionProps) {
               transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}>
 
               <div className="flex items-center justify-center gap-2 mb-4 sm:mb-6">
-                <Timer className="w-5 h-5 text-[#00C896]" />
-                <h3 className="text-lg font-heading font-semibold text-foreground">
+                <Timer className="w-5 h-5 text-[#00B386]" />
+                <h3 className="text-lg font-heading font-semibold text-foreground tracking-[0.5px]">
                   Launch Countdown
                 </h3>
               </div>
               
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-                {[
-                { label: 'Days', value: timeLeft.days },
-                { label: 'Hours', value: timeLeft.hours },
-                { label: 'Minutes', value: timeLeft.minutes },
-                { label: 'Seconds', value: timeLeft.seconds }].
-                map((item, index) =>
+                {[{ label: 'Days', value: timeLeft.days }, { label: 'Hours', value: timeLeft.hours }, { label: 'Minutes', value: timeLeft.minutes }, { label: 'Seconds', value: timeLeft.seconds }].map((item, index) =>
                 <motion.div
                   key={item.label}
                   className="bg-white border border-[#E5E7EB] rounded-xl p-3 sm:p-4 flex flex-col items-center gap-1 sm:gap-2 shadow-sm hover:shadow-md transition-colors"
@@ -340,9 +339,9 @@ export default function HeroSection({ className }: HeroSectionProps) {
                   transition={{ duration: 0.5, delay: 0.9 + index * 0.1 }}>
 
                     <motion.div
-                    className="text-xl sm:text-2xl md:text-3xl font-heading font-bold text-[#00C896] tabular-nums"
+                    className="text-xl sm:text-2xl md:text-3xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#00B386] to-[#4DB6E5] tabular-nums"
                     key={item.value}
-                    initial={{ opacity: 0.8, scale: 0.9 }}
+                    initial={{ opacity: 0.85, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.2 }}>
 
