@@ -13,15 +13,15 @@ export default function ProductShowcase({ className }: ProductShowcaseProps) {
 
   const secondaryProducts = [
   {
-    id: "blister-pack",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/1757197530710-fz56nttjvzv.png",
+    id: "energy-water",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Screenshot-2025-10-26-024527-1762368573184.png",
     alt: "Caffiq Energy Water - For Workouts & Workdays",
     title: "Energy Water",
     description: "For Workouts & Workdays"
   },
   {
-    id: "box-display",
-    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/document-uploads/1757271372360-6pp8ph6ukcw.png",
+    id: "caffeine-gum",
+    image: "https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/render/image/public/document-uploads/Screenshot-2025-10-26-025656-1762368573430.png",
     alt: "Caffiq Caffeine Gum - For Exams & Everything Else",
     title: "Caffeine Gum",
     description: "For Exams & Everything Else"
