@@ -19,8 +19,8 @@ export const EcosystemSection = () => {
             <div className="bg-white/80 backdrop-blur border border-[#E5E7EB] rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 h-full">
               {/* Badge */}
               <div className="absolute top-6 right-6">
-                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-[#00B386] to-[#039a74] text-white shadow-sm">
-                  Launching First
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-muted text-foreground shadow-sm">
+                  Coming Soon
                 </span>
               </div>
 

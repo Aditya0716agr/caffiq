@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { Scaling } from "lucide-react";
+import Image from "next/image";
 
 interface ProductShowcaseProps {
   className?: string;
@@ -92,19 +93,20 @@ export default function ProductShowcase({ className }: ProductShowcaseProps) {
                     {/* Product Image */}
                     <div className="relative mb-4">
                       <div className="aspect-square w-full max-w-xs mx-auto p-4">
-                        <img
-                        src={product.image}
-                        alt={product.alt}
-                        loading="lazy"
-                        decoding="async"
-                        sizes="(min-width: 768px) 20rem, 90vw"
-                        className="w-full h-full object-contain rounded-xl transition-all duration-300" 
-                        style={{
-                          filter: hoveredProduct === product.id ?
-                          'brightness(1.03) contrast(1.03)' :
-                          'brightness(1) contrast(1)'
-                        }} />
-
+                        <Image
+                          src={product.image}
+                          alt={product.alt}
+                          width={400}
+                          height={400}
+                          priority={index === 0}
+                          quality={90}
+                          sizes="(max-width: 768px) 90vw, (max-width: 1200px) 20rem, 20rem"
+                          className="w-full h-full object-contain rounded-xl transition-all duration-300"
+                          style={{
+                            filter: hoveredProduct === product.id ?
+                            'brightness(1.03) contrast(1.03)' :
+                            'brightness(1) contrast(1)'
+                          }} />
                         
                         {/* Subtle Reflection */}
                         <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-white/40 rounded-xl pointer-events-none" />

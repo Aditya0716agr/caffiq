@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Timer, Check } from 'lucide-react';
 import { toast } from 'sonner';
 import { motion } from 'motion/react';
+import Image from 'next/image';
 
 interface HeroSectionProps {
   className?: string;
@@ -183,13 +184,15 @@ export default function HeroSection({ className }: HeroSectionProps) {
       transition: { duration: 0.2 }
     }}>
 
-      <img
-      src={photoUrl}
-      alt={`Waitlist member ${i + 1}`}
-      className="w-full h-full object-cover"
-      loading="lazy"
-      decoding="async"
-      sizes="40px" />
+      <Image
+        src={photoUrl}
+        alt={`Waitlist member ${i + 1}`}
+        width={40}
+        height={40}
+        priority={i < 4}
+        quality={85}
+        sizes="40px"
+        className="w-full h-full object-cover" />
 
       <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-white/10 pointer-events-none" />
     </motion.div>
