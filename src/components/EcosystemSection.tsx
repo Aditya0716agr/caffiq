@@ -70,18 +70,6 @@ export const EcosystemSection = () => {
             </div>
           </motion.div>
         </div>
-
-        {/* Bottom Line */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-12">
-          <p className="text-base md:text-lg text-foreground/70 font-medium">
-            Subscribe to both. Never run out of energy.
-          </p>
-        </motion.div>
       </div>
     </section>
   );
