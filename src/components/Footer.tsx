@@ -30,13 +30,13 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Launch Message */}
-          <div className="text-center space-y-2">
-            <p className="text-lg font-medium text-foreground">
-              Launching soon at select campuses
+          {/* Brand Tagline */}
+          <div className="text-center space-y-3">
+            <p className="text-xl md:text-2xl font-heading font-semibold text-foreground tracking-[0.5px]">
+              Chew it. Sip it. Own it.
             </p>
-            <p className="text-sm text-muted-foreground">
-              Be the first to experience the future of focus
+            <p className="text-sm md:text-base text-muted-foreground max-w-lg">
+              The energy revolution is caffeinated. And it's very, very Indian.
             </p>
           </div>
 
@@ -46,7 +46,7 @@ export default function Footer() {
               Questions? Reach out to us
             </p>
             <a
-              href="mailto:hello@caffiq.com"
+              href="mailto:hertofhelp@gmail.com"
               className="text-sm text-ring hover:text-ring/80 transition-colors duration-200 font-medium">
 
               hertofhelp@gmail.com
@@ -55,8 +55,8 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="pt-6 border-t border-border w-full text-center">
-            <p className="text-xs text-muted-foreground !whitespace-pre-line">© 2025 Caffiq. All rights reserved.
-
+            <p className="text-xs text-muted-foreground">
+              © 2025 Caffiq. All rights reserved.
             </p>
           </div>
         </div>

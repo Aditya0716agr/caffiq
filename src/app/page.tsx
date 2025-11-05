@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import { EcosystemSection } from "@/components/EcosystemSection";
 import ProductShowcase from "@/components/ProductShowcase";
 import { FAQSection } from "@/components/FAQSection";
 import { CommentCollection } from "@/components/CommentCollection";
@@ -14,6 +15,10 @@ export default function Home() {
       <main className="pt-20 md:pt-24">
         <section id="home">
           <HeroSection />
+        </section>
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent my-12 sm:my-16" />
+        <section id="ecosystem">
+          <EcosystemSection />
         </section>
         <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent my-12 sm:my-16" />
         <section id="product">

@@ -215,14 +215,14 @@ export default function HeroSection({ className }: HeroSectionProps) {
                 style={{ backgroundSize: "200% 200%" }}
                 animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}>
-                Premium Energy,
+                Your Energy,
               </motion.span>
               <motion.span
                 className="block bg-clip-text text-transparent bg-gradient-to-r from-[#00B386] via-[#4DB6E5] to-[#00B386] drop-shadow-sm"
                 style={{ backgroundSize: "200% 200%" }}
                 animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}>
-                Perfectly Portable.
+                Your Way.
               </motion.span>
              </motion.h1>
             <motion.div
@@ -238,7 +238,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}>
 
-              Elevate your day with refined, portable energy—crafted for focus, clarity, and modern lifestyles.
+              India's first caffeine ecosystem. Water when you hydrate. Gum when you hustle.
             </motion.p>
 
             {/* Waitlist Form */}
@@ -283,7 +283,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
                           Joined!
                         </motion.div>
                       ) : (
-                        'Secure Early Access'
+                        'Join the Waitlist'
                       )}
                     </Button>
                   </form>
@@ -313,7 +313,7 @@ export default function HeroSection({ className }: HeroSectionProps) {
                   <span className="font-semibold text-foreground">
                     {Math.max(300, signupCount).toLocaleString()}+
                   </span>
-                  {' '}professionals have reserved access
+                  {' '}already in. Are you?
                 </motion.p>
               </motion.div>
             </motion.div>
@@ -332,6 +332,14 @@ export default function HeroSection({ className }: HeroSectionProps) {
                 </h3>
               </div>
               
+              <motion.p
+                className="text-sm md:text-base text-foreground/70 mb-4 sm:mb-6"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.9 }}>
+                Water drops first. Gum follows. You get both.
+              </motion.p>
+
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
                 {[{ label: 'Days', value: timeLeft.days }, { label: 'Hours', value: timeLeft.hours }, { label: 'Minutes', value: timeLeft.minutes }, { label: 'Seconds', value: timeLeft.seconds }].map((item, index) =>
                 <motion.div
@@ -356,6 +364,14 @@ export default function HeroSection({ className }: HeroSectionProps) {
                   </motion.div>
                 )}
               </div>
+              
+              <motion.p
+                className="text-xs sm:text-sm text-muted-foreground text-center mt-4 sm:mt-6"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 }}>
+                First 500 waitlisters get both products at launch discount.
+              </motion.p>
             </motion.div>
           </div>
         </div>
